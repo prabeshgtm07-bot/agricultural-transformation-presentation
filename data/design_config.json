@@ -1,0 +1,38 @@
+{
+  "colors": {
+    "primary_blue": "#003366",
+    "forest_green": "#2D5016",
+    "burnt_orange": "#D97706",
+    "light_gray": "#F3F4F6",
+    "dark_gray": "#1F2937",
+    "white": "#FFFFFF",
+    "teal": "#14B8A6",
+    "red": "#DC2626"
+  },
+  "typography": {
+    "title": {
+      "font": "Arial",
+      "size": 40,
+      "weight": "bold",
+      "color": "primary_blue"
+    },
+    "subtitle": {
+      "font": "Arial",
+      "size": 28,
+      "weight": "regular",
+      "color": "dark_gray"
+    },
+    "body": {
+      "font": "Arial",
+      "size": 18,
+      "weight": "regular",
+      "color": "dark_gray"
+    }
+  },
+  "layout": {
+    "slide_ratio": "16:9",
+    "title_bar_height": "0.8 inches",
+    "margin": "0.75 inches"
+  },
+  "design_notes": "Professional government aesthetic with clear hierarchy and data-focused presentation"
+}
