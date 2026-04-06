@@ -1,0 +1,56 @@
+{
+  "title": "Nepal Agricultural Transformation Roadmap",
+  "subtitle": "2025–2030",
+  "version": "1.0",
+  "date": "April 2026",
+  "organization": "Ministry of Agriculture & Livestock Development",
+  "country": "Government of Nepal",
+  "slides": {
+    "total": 29,
+    "structure": {
+      "opening": "Slides 1-5 | Problem identification",
+      "root_causes": "Slides 6-13 | System failures",
+      "solutions": "Slides 14-22 | 8 Reform pillars",
+      "implementation": "Slides 23-25 | Timeline, budget, targets",
+      "closing": "Slides 26-29 | Comparison, feasibility, choice"
+    }
+  },
+  "key_statistics": {
+    "farmers": "3.4 million",
+    "potential_utilization": "50%",
+    "annual_migration": "730,000 workers",
+    "average_holding": "0.6 hectares",
+    "current_irrigation": "36%",
+    "current_fertilizer": "67 kg/ha",
+    "subsidy_budget": "NPR 28 billion",
+    "subsidy_reach": "30-40% of farmers"
+  },
+  "eight_pillars": [
+    "Land Consolidation & Documentation",
+    "Irrigation Expansion & Water Security",
+    "Input System Overhaul",
+    "Market System Transformation",
+    "Agricultural Finance Transformation",
+    "Extension & Human Capital",
+    "Climate Resilience & Soil Health",
+    "Governance & Institutional Reform"
+  ],
+  "five_year_budget": {
+    "year_1": 55,
+    "year_2": 81,
+    "year_3": 87,
+    "year_4": 75,
+    "year_5": 60,
+    "total": 358,
+    "currency": "NPR Billion"
+  },
+  "targets_2030": {
+    "irrigated_land": "65%",
+    "paddy_yield": "5.5+ tonnes/ha",
+    "fertilizer_use": "140+ kg/ha",
+    "formal_credit": "35%+",
+    "agricultural_exports": "NPR 180+ Bn",
+    "agricultural_growth": "4-5% annually",
+    "farmer_income": "NPR 150-250K/year"
+  }
+}
