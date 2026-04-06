@@ -1,9 +1,0 @@
-    - name: Create Release
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: softprops/action-gh-release@v1
-      with:
-        files: output/Nepal_Agricultural_Transformation_Roadmap.pptx
-        tag_name: v${{ github.run_number }}
-        body: "PowerPoint presentation auto-generated"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
