@@ -1274,7 +1274,7 @@ add_conclusion()            # 22
 # ══════════════════════════════════════════════════════════════════════════════
 
 repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-output_path = os.path.join(repo_root, "agricultural_transformation.pptx")
+output_path = os.path.join(repo_root, "Agricultural_Transformation_Presentation.pptx")
 prs.save(output_path)
 print(f"✓ PowerPoint created: {output_path}")
 print(f"✓ Total slides: {len(prs.slides)}")
