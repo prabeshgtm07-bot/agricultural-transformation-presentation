@@ -1,16 +1,15 @@
 """
 Agricultural Transformation - PowerPoint Generator
-Comprehensive 20-slide presentation with professional green/earth-tone design (16:9)
+Comprehensive 22-slide presentation with professional green/earth-tone design (16:9)
 """
 
 import os
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
+from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.dml.color import RGBColor
 from pptx.chart.data import ChartData
 from pptx.enum.chart import XL_CHART_TYPE
-from pptx.util import Inches, Pt
 
 # ── Palette (earth tones / greens) ────────────────────────────────────────────
 C_DARK_GREEN   = RGBColor(27,  94,  32)   # deep forest green  #1B5E20
