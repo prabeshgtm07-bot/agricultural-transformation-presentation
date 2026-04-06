@@ -1,6 +1,6 @@
 """
 Nepal Agricultural Transformation Roadmap - PowerPoint Generator
-Simplified version without external dependencies
+Complete working version with 16 slides
 """
 
 import os
@@ -21,7 +21,8 @@ prs = Presentation()
 prs.slide_width = Inches(10)
 prs.slide_height = Inches(7.5)
 
-def add_title_slide(title, subtitle, footer_left, footer_right):
+def add_title_slide(title, subtitle):
+    """Add title slide - FIXED: Only 2 parameters"""
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     background = slide.background
     fill = background.fill
@@ -46,8 +47,17 @@ def add_title_slide(title, subtitle, footer_left, footer_right):
     p.font.size = Pt(32)
     p.font.color.rgb = COLOR_BURNT_ORANGE
     p.alignment = PP_ALIGN.CENTER
+    
+    # Footer
+    footer_box = slide.shapes.add_textbox(Inches(0.5), Inches(6.8), Inches(9), Inches(0.6))
+    footer_frame = footer_box.text_frame
+    p = footer_frame.paragraphs[0]
+    p.text = "Government of Nepal | Ministry of Agriculture & Livestock Development"
+    p.font.size = Pt(10)
+    p.font.color.rgb = COLOR_WHITE
 
 def add_content_slide(title, bullets, color='blue'):
+    """Add standard content slide"""
     slide = prs.slides.add_slide(prs.slide_layouts[6])
     
     # Title bar
@@ -82,162 +92,157 @@ def add_content_slide(title, bullets, color='blue'):
         p.font.size = Pt(16)
         p.font.color.rgb = COLOR_DARK_GRAY
 
-# SLIDES
+# SLIDE 1: Title
 add_title_slide(
     "Nepal Agricultural Transformation",
-    "Roadmap 2025–2030",
-    "Ministry of Agriculture & Livestock Development"
+    "Roadmap 2025–2030"
 )
 
-add_content_slide("The Crisis", [
+# SLIDE 2: Crisis
+add_content_slide("The Crisis in One Sentence", [
     "Nepal operates at 50% agricultural potential",
     "3.4 million farmers trapped in subsistence",
     "730,000 workers leave annually",
-    "Average farm: 0.6 hectares",
+    "Average farm: 0.6 hectares (below viability)",
     "Only 36% irrigation coverage"
 ], 'orange')
 
-add_content_slide("Root Causes", [
+# SLIDE 3: Root Causes
+add_content_slide("10 Root Causes", [
     "Land fragmentation (0.6 ha average)",
     "Irrigation crisis (36% coverage)",
-    "Input deficiency (67 kg/ha vs 164 in India)",
-    "Labour exodus (3–10× wage gap)",
-    "Market failure (farmers get 30-40% retail)"
+    "Input deficiency (67 vs 164 kg/ha in India)",
+    "Labour exodus (3-10x wage gap)",
+    "Market failure (30-40% farmer share)",
+    "Finance starvation (94% excluded)",
+    "Climate vulnerability",
+    "Soil degradation (10-15 tonnes/ha erosion)",
+    "Governance failure (fragmented)",
+    "Human capital collapse"
 ], 'blue')
 
-add_content_slide("Vicious Cycles", [
-    "Cycle 1: Productivity trap → Out-migration",
-    "Cycle 2: No credit → Cannot invest",
-    "Cycle 3: Limited water → Cannot adapt",
-    "Cycle 4: Soil collapse → Yield decline",
-    "All cycles interconnected and reinforcing"
+# SLIDE 4: Vicious Cycles
+add_content_slide("4 Vicious Cycles", [
+    "Cycle 1: Small holdings → Low productivity → Migration",
+    "Cycle 2: No collateral → No credit → Cannot invest",
+    "Cycle 3: Limited irrigation → Cannot plan → No adaptation",
+    "Cycle 4: Nutrient mining → Soil collapse → Yield decline"
 ], 'blue')
 
-add_content_slide("8 Reform Pillars", [
-    "1. Land Consolidation – 100,000 ha by 2030",
-    "2. Irrigation Expansion – 36% to 65%",
-    "3. Input System – Fertilizer 67 to 140 kg/ha",
-    "4. Markets – Farmer share 30% to 50-60%",
-    "5. Agricultural Finance – 6% to 35% credit",
-    "6. Extension – 1:500 ratio (vs 1:1500 now)",
-    "7. Climate & Soil – Adaptive varieties",
-    "8. Governance – Functions clarity"
+# SLIDE 5: Why Current Approaches Fail
+add_content_slide("Why Subsidies Alone Fail", [
+    "Subsidy without irrigation = wasted inputs",
+    "Training without credit = cannot implement",
+    "Seeds without extension = planted incorrectly",
+    "Cooperatives without scale = no impact",
+    "All these are disconnected fixes for a system problem"
+], 'orange')
+
+# SLIDE 6: 8 Reform Pillars
+add_content_slide("8 Interconnected Pillars (SOLUTIONS)", [
+    "1. Land Consolidation (100K ha by 2030)",
+    "2. Irrigation Expansion (36% → 65%)",
+    "3. Input System (67 → 140 kg/ha)",
+    "4. Markets (30% → 50-60% farmer share)",
+    "5. Agricultural Finance (6% → 35% credit)",
+    "6. Extension (1:1500 → 1:500 ratio)",
+    "7. Climate & Soil (adaptive varieties)",
+    "8. Governance (clarity & accountability)"
 ], 'green')
 
-add_content_slide("Pillar 1: Land", [
-    "Problem: 0.6 ha average; 50% undocumented",
-    "Solution: Voluntary pooling (NPR 80K/ha)",
-    "Land documentation – Digitize all holdings",
-    "Family Land Trust Law",
-    "Target 2030: 100,000 ha pooled"
+# SLIDE 7: Pillar 1 - Land
+add_content_slide("Pillar 1: Land Consolidation", [
+    "Problem: 0.6 ha average, 50% undocumented",
+    "Solution: Voluntary pooling (NPR 80K/ha grants)",
+    "Land documentation (digitize all holdings)",
+    "Family Land Trust Law (inherit shares, not land)",
+    "Target 2030: 100,000 ha pooled, 90% documented"
 ], 'green')
 
-add_content_slide("Pillar 2: Irrigation", [
-    "Problem: 36% coverage; 80% rain in 4 months",
-    "Solution: Small-scale schemes (500K ha new)",
-    "Water harvesting (200K ponds)",
+# SLIDE 8: Pillar 2 - Irrigation
+add_content_slide("Pillar 2: Irrigation Expansion", [
+    "Problem: 36% coverage, 80% rain in 4 months",
+    "Solution: Small-scale schemes (500K new ha)",
+    "Water harvesting (200K farm ponds)",
     "Groundwater governance",
-    "Target 2030: 65% coverage"
+    "Target 2030: 65% coverage, year-round farming"
 ], 'green')
 
-add_content_slide("Pillar 3: Inputs", [
-    "Problem: 67 kg/ha vs 164 in India",
-    "Solution: Smart Farmer Card (capped subsidy)",
-    "Subsidy reform: NPR 28 Bn to 14 Bn",
-    "Seed production (7 provincial farms)",
-    "Target 2030: 140 kg/ha"
+# SLIDE 9: Pillar 4 - Markets
+add_content_slide("Pillar 4: Market Transformation", [
+    "Problem: Farmers get 30-40% retail, 30-40% losses",
+    "Solution: 77 District Aggregation Centres (cold storage)",
+    "7 Provincial Processing Hubs (value-add)",
+    "Digital Trade Platform (direct buyers)",
+    "Target 2030: 50-60% share, 3x exports"
 ], 'green')
 
-add_content_slide("Pillar 4: Markets", [
-    "Problem: Farmers 30-40% retail; 30-40% losses",
-    "Solution: 77 Aggregation Centres (cold storage)",
-    "7 Processing Hubs (value-add)",
-    "Digital Trade Platform",
-    "Target 2030: 50-60% share; 3× exports"
+# SLIDE 10: Pillar 5 - Finance
+add_content_slide("Pillar 5: Agricultural Finance", [
+    "Problem: 18-24% interest, only 6% get credit",
+    "Solution: ACGF (NPR 20 Bn government capital)",
+    "70% guarantee → interest drops to 10-12%",
+    "Unlocks NPR 100 Bn private lending (5:1 leverage)",
+    "Target 2030: 35% with formal credit"
 ], 'green')
 
-add_content_slide("Pillar 5: Finance", [
-    "Problem: Interest 18-24%; 6% credit access",
-    "Solution: ACGF (NPR 20 Bn government)",
-    "70% guarantee → Interest drops to 10-12%",
-    "Unlocks NPR 100 Bn private lending",
-    "Target 2030: 35% formal credit"
-], 'green')
-
-add_content_slide("Pillar 6: Extension", [
-    "Problem: 1 technician per 1,500 farmers",
-    "Solution: Hire 6,000 JAEOs (home-district)",
-    "Climate-smart curriculum",
-    "Farmer Field Schools",
-    "Target 2030: 1:500 ratio"
-], 'green')
-
-add_content_slide("Pillar 7: Climate & Soil", [
-    "Problem: Monsoons erratic; soil declining",
-    "Solution: Climate vulnerability mapping",
-    "Adaptive crop varieties",
-    "Soil Health Cards (free testing)",
-    "Target 2030: 50%+ climate-smart adoption"
-], 'green')
-
-add_content_slide("Pillar 8: Governance", [
-    "Problem: Fragmented; 200+ programs; 70% execution",
-    "Solution: Functions Clarity Act",
-    "National Coordination Council",
-    "8 Flagship Programmes (consolidate)",
-    "Target 2030: 85%+ execution"
-], 'green')
-
-add_content_slide("Financial Logic", [
-    "Current budget: NPR 287.5 Bn (5 years)",
+# SLIDE 11: Financial Framework
+add_content_slide("Financial Logic: NPR 340 Bn", [
+    "Current trajectory: NPR 287.5 Bn",
     "Proposed: NPR 340 Bn (18% increase)",
-    "Funding: Subsidy reform + loans + leverage",
+    "Funding: Subsidy reform (70 Bn) + loans + leverage",
     "ACGF private leverage: NPR 100 Bn",
     "Status: FULLY FUNDED"
 ], 'blue')
 
-add_content_slide("5-Year Timeline", [
-    "Year 1 (NPR 55 Bn): Foundation – Laws, pilots",
-    "Year 2 (NPR 81 Bn): Build – 200K ha irrigation",
-    "Year 3 (NPR 87 Bn): Peak – 320K ha; scaling",
-    "Year 4 (NPR 75 Bn): Consolidate – 430K ha",
-    "Year 5 (NPR 60 Bn): Sustain – 65% coverage"
+# SLIDE 12: Timeline
+add_content_slide("5-Year Implementation", [
+    "Year 1 (NPR 55 Bn): Foundation - Laws, pilots",
+    "Year 2 (NPR 81 Bn): Build - 200K ha irrigation added",
+    "Year 3 (NPR 87 Bn): Peak - 320K ha total, scaling",
+    "Year 4 (NPR 75 Bn): Consolidate - 430K ha total",
+    "Year 5 (NPR 60 Bn): Sustain - 65% coverage achieved"
 ], 'blue')
 
-add_content_slide("2030 Targets", [
+# SLIDE 13: 2030 Targets
+add_content_slide("2030 Transformation Targets", [
     "Irrigation: 36% → 65% coverage",
-    "Paddy yield: 3.1 → 5.5+ tonnes/ha",
-    "Fertilizer: 67 → 140+ kg/ha",
-    "Formal credit: 6% → 35%",
+    "Paddy yield: 3.1 → 5.5+ tonnes/ha (1.77x)",
+    "Fertilizer: 67 → 140+ kg/ha (2.08x)",
+    "Formal credit: 6% → 35% (5x)",
     "Agricultural growth: 1% → 4-5% annually",
     "Farmer income: 30-50K → 150-250K NPR/year"
 ], 'green')
 
-add_content_slide("The Choice", [
-    "STATUS QUO:",
-    "Subsidy 30-40% reach; irrigation 36%",
-    "Labour exodus 730K/year",
+# SLIDE 14: Status Quo vs Transformation
+add_content_slide("The Choice: Inaction vs Transformation", [
+    "STATUS QUO: Subsidy 30-40% reach, exodus 730K/year",
+    "TRANSFORMATION: Subsidy 90%+ reach, exodus slows",
     "",
-    "TRANSFORMATION:",
-    "Subsidy 90%+ reach; irrigation 65%",
-    "Agricultural growth 4-5%; food self-sufficient"
+    "STATUS QUO: 94% excluded from credit",
+    "TRANSFORMATION: 35% with viable credit",
+    "",
+    "STATUS QUO: Growth ~1%, food insecurity rising",
+    "TRANSFORMATION: Growth 4-5%, self-sufficient"
 ], 'blue')
 
-add_content_slide("Why This Works", [
-    "Political: Targets elite capture, not poor",
-    "Financial: Self-financed through reallocation",
-    "Technical: All components proven elsewhere",
-    "Institutional: Clear accountability",
-    "Laws bind future governments"
+# SLIDE 15: Why This Works
+add_content_slide("Why This Roadmap Is Implementable", [
+    "Political: Targets elite capture, not poor farmers",
+    "Financial: Self-financed through reallocation + leverage",
+    "Technical: All components proven in other countries",
+    "Institutional: Clear accountability, laws bind governments",
+    "Quarterly dashboards + independent evaluation"
 ], 'green')
 
-add_content_slide("DO WE SUBSIDIZE POVERTY", [
-    "Or invest in prosperity?",
+# SLIDE 16: Core Truth
+add_content_slide("The Closing Question", [
     "",
-    "This roadmap provides the blueprint",
-    "for structural transformation",
+    "Do we continue to subsidize poverty?",
     "",
-    "Political will is the only constraint"
+    "Or do we invest in prosperity?",
+    "",
+    "This roadmap is the blueprint. Political will is the constraint."
 ], 'blue')
 
 # Save
